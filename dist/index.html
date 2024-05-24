@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <style>
+        /* CSS styles */
+        body {
+            background-color: #1c1c1c;
+            color: #eaeaea;
+        }
+        .contact, .experience {
+            padding: 50px 0;
+        }
+        .contact {
+            background-color: #2e2e2e;
+        }
+        .contact .contact-info {
+            background-color: #424242;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .contact .contact-info i {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #f0a500;
+        }
+        .experience {
+            background-color: #3e3e3e;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Arial", sans-serif;
+        }
+        .modal-img {
+            width: 100%;
+            height: auto;
+        }
+        .zoom-effect {
+            transition: transform 0.3s;
+        }
+        .zoom-effect:hover {
+            transform: scale(1.1);
+        }
+        .timeline {
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #eaeaea;
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -8px;
+            width: 16px;
+            height: 16px;
+            background: #f0a500;
+            border-radius: 50%;
+            border: 2px solid #eaeaea;
+        }
+        .timeline-item.left {
+            left: 0;
+            text-align: right;
+        }
+        .timeline-item.right {
+            left: 50%;
+            text-align: left;
+        }
+        .timeline-item.right::before {
+            left: -8px;
+            right: auto;
+        }
+        @media (max-width: 767px) {
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left !important;
+            }
+            .timeline-item::before {
+                left: -8px !important;
+                right: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div style="margin-top: 300px; margin-bottom: 430px;">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h1 style="font-size: 70px;" class="text-warning">Oscar Montilla</h1>
+                        <p style="font-size: 40px;" class="lead">Full stack developer</p>
+                        <button id="cvButton" class="btn text-warning btn-outline-warning">CV</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal HTML -->
+        <div class="modal fade" id="cvModal" tabindex="-1" role="dialog" aria-labelledby="cvModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="text-dark modal-title" id="cvModalLabel">Currículum Vitae</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="images/cv.png" class="modal-img" alt="Currículum Vitae">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOBRE MI -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <h1 class="poetsen text-white mt-3">Sobre mi</h1>
+                    <div class="col-12 text-white">
+                        <p class="montserrat">Estudiante de segundo año de Desarrollo de Aplicaciones Web, apasionado por la tecnología y la programación. Me especializo en HTML, CSS, y JavaScript, estoy adquiriendo habilidades en frameworks modernos como React. Mi objetivo es crear aplicaciones web innovadoras y eficientes que mejoren la experiencia del usuario.</p>
+                    </div>
+                    <div>
+                        <h1 class="poetsen text-white text-center mb-5 mt-5">Conocimientos</h1>
+                        <div class="row text-center mb-5">
+                            <div class="col-3">
+                                <img class="w-50" src="images/html-css-logo.png" alt="">
+                            </div>
+                            <div class="col-3">
+                                <img class="w-50" src="images/js.png" alt="">
+                            </div>
+                            <div class="col-3">
+                                <img class="w-50" src="images/python.png" alt="">
+                            </div>
+                            <div class="col-3">
+                                <img class="w-50" src="images/php.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="row text-center">
+                            <div class="col-3">
+                                <img class="w-50" src="images/git.png" alt="">
+                            </div>
+                            <div class="col-3">
+                                <img class="w-50" src="images/mysql.png" alt="">
+                            </div>
+                            <div class="col-3">
+                                <img class="w-50 imagen" src="images/java.png" alt="">
+                            </div>
+                            <div class="col-3">
+                                <img class="w-50" src="images/postgres.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience mt-5">
+            <div class="container">
+                <h1 class="poetsen text-center mb-5">Experiencia</h1>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <h4>Técnico en mantenimiento Hardware</h4>
+                        <p>Revolution Computer, Barcelona</p>
+                        <p class="montserrat">Montaje y mantenimiento de Hardware</p>
+                        <p class="montserrat">Configuración y actualización de sistemas operativos</p>
+                        <p class="montserrat">Asesoramiento y comercialización de productos informáticos</p>
+                        <p class="montserrat">Atención a los clientes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section>
+            <div class="container">
+                <h1 class="poetsen text-white text-center mt-5 mb-5">Portfolio</h1>
+                <div class="row text-center mb-5">
+                    <div class="col-6">
+                        <h2 class="oswald mt-5">Tetris</h2>
+                        <p class="montserrat">Proyecto que replica el juego del tetris a la perfeccion teniendo su puntaje, su guardado de partidas y todas sus funciones</p>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <img data-toggle="modal" data-target="#projectModal" data-title="Tetris" data-technologies="HTML, CSS y JavaScript" data-github="https://github.com/OscarMontilla/tetris" class="w-50 project-img" src="images/tetris.png" alt="">
+                    </div>
+                </div>
+
+                <div class="row text-center mb-5">
+                    <div class="col-6">
+                        <img data-toggle="modal" data-target="#projectModal" data-title="Vanilla Games" data-technologies="HTML, CSS, JavaScript y Supabase" data-github="https://github.com/OscarMontilla/VanillaGames" class="w-50 project-img" src="images/logo.svg" alt="">
+                    </div>
+                    <div class="col-6">
+                        <h2 class="oswald mt-5">Vanilla Games</h2>
+                        <p class="montserrat">Un proyecto desde 0 con diferentes roles como son registrado, desarrollador y administrador donde te permite ver en la web los proyectos publicados por desarrolladores y hacer el CRUD de todos los proyectos y usuarios</p>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-6 mb-5">
+                        <h2 class="oswald mt-5">Cinesa</h2>
+                        <p class="montserrat">Un proyecto que replica la pagina web de cinesa a la perfeccion con todos los detalles</p>
+                    </div>
+                    <div class="col-6">
+                        <img style="height: 200px;" data-toggle="modal" data-target="#projectModal" data-title="Cinesa" data-technologies="HTML y CSS" data-github="https://github.com/OscarMontilla/cinesa" class="imagen project-img" src="images/cinesa.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="mt-5 contact text-center text-white">
+            <div class="container">
+                <h2 class="poetsen mb-5">Contacto</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mb-3">
+                        <div class="contact-info">
+                            <i class="fas fa-envelope"></i>
+                            montillaacostaoscar@gmail.com
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="contact-info">
+                            <i class="fas fa-phone"></i>
+                            677788639
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="contact-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Badalona, España
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="text-dark modal-title" id="projectModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-dark">Tecnologías utilizadas:</h6>
+                            <p class="text-dark" id="projectTechnologies"></p>
+                    
+                            <a id="projectGithub" href="" target="_blank">Ver en GitHub</a>
+                        </div>
+                        <div class="col-md-6">
+                            <img id="projectImage" class="modal-img" src="" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('cvButton').addEventListener('click', function() {
+            $('#cvModal').modal('show');
+        });
+
+        document.querySelectorAll('.project-img').forEach(img => {
+            img.addEventListener('click', function() {
+                const title = this.getAttribute('data-title');
+                const technologies = this.getAttribute('data-technologies');
+                const github = this.getAttribute('data-github');
+                const src = this.getAttribute('src');
+
+                document.getElementById('projectModalLabel').innerText = title;
+                document.getElementById('projectTechnologies').innerText = technologies;
+                document.getElementById('projectGithub').href = github;
+                document.getElementById('projectImage').src = src;
+
+                $('#projectModal').modal('show');
+            });
+        });
+
+        function addZoomEffect(event) {
+            event.target.classList.add('zoom-effect');
+        }
+
+        function removeZoomEffect(event) {
+            event.target.classList.remove('zoom-effect');
+        }
+
+        var images = document.querySelectorAll('.w-50, .imagen');
+
+        images.forEach(function(image) {
+            image.addEventListener('mouseenter', addZoomEffect);
+            image.addEventListener('mouseleave', removeZoomEffect);
+        });
+    </script>
+</body>
+</html>
