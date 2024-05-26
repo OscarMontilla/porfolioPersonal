@@ -35,6 +35,7 @@
         body {
             background-color: #1c1c1c;
             color: #eaeaea;
+            scroll-behavior: smooth;
         }
         .contact, .experience {
             padding: 50px 0;
@@ -188,9 +189,10 @@
                 <div class="row">
                     <h1 class="poetsen text-white mt-3">Sobre mi</h1>
                     <div class="col-12 text-white">
-                        <p class="montserrat">Estudiante de segundo año de Desarrollo de Aplicaciones Web, apasionado por la tecnología y la programación. Me especializo en HTML, CSS, y JavaScript, estoy adquiriendo habilidades en frameworks modernos como React. Mi objetivo es crear aplicaciones web innovadoras y eficientes que mejoren la experiencia del usuario.</p>
+                        <p class="mb-5 montserrat">Estudiante de segundo año de Desarrollo de Aplicaciones Web, apasionado por la tecnología y la programación. Me especializo en HTML, CSS, y JavaScript, estoy adquiriendo habilidades en frameworks modernos como React. Mi objetivo es crear aplicaciones web innovadoras y eficientes que mejoren la experiencia del usuario.</p>
                     </div>
-                    <div id="conocimientos">
+                    
+                    <div id="conocimientos" class="mt-4 pt-4">
                         <h1 class="poetsen text-white text-center mb-5 mt-5">Conocimientos</h1>
                         <div class="row text-center mb-5">
                             <div class="col-3">
@@ -238,19 +240,19 @@
                         <p class="montserrat">Configuración y actualización de sistemas operativos</p>
                         <p class="montserrat">Asesoramiento y comercialización de productos informáticos</p>
                         <p class="montserrat">Atención a los clientes</p>
-                    </div>
+                    </div>	
                 </div>
             </div>
         </section>
 
         <!-- Portfolio Section -->
-        <section>
-            <div id="portfolio" class="container">
+        <section id="portfolio">
+            <div class="container">
                 <h1 class="poetsen text-white text-center mt-5 mb-5">Portfolio</h1>
                 <div class="row text-center mb-5">
                     <div class="col-6">
                         <h2 class="oswald mt-5">Tetris</h2>
-                        <p class="montserrat">Proyecto que replica el juego del tetris a la perfeccion teniendo su puntaje, su guardado de partidas y todas sus funciones</p>
+                        <p class="montserrat">Una versión moderna del clásico Tetris, con un sistema de puntuación en tiempo real, guardado automático de partidas y todas las funcionalidades tradicionales. Experimenta el juego que conoces y amas, mejorado para una experiencia de usuario sin igual.</p>
                     </div>
                     <div class="col-6 mb-5">
                         <img data-toggle="modal" data-target="#projectModal" data-title="Tetris" data-technologies="HTML, CSS y JavaScript" data-github="https://github.com/OscarMontilla/tetris" class="w-50 project-img" src="images/tetris.png" alt="">
@@ -263,25 +265,25 @@
                     </div>
                     <div class="col-6">
                         <h2 class="oswald mt-5">Vanilla Games</h2>
-                        <p class="montserrat">Un proyecto desde 0 con diferentes roles como son registrado, desarrollador y administrador donde te permite ver en la web los proyectos publicados por desarrolladores y hacer el CRUD de todos los proyectos y usuarios</p>
+                        <p class="montserrat">Plataforma interactiva para desarrolladores y usuarios, permitiendo publicar, gestionar y explorar proyectos de juegos. Con roles personalizados y completas funcionalidades CRUD, Vanilla Games es tu portal para descubrir y compartir juegos innovadores.</p>
                     </div>
                 </div>
 
                 <div class="row text-center">
                     <div class="col-6 mb-5">
                         <h2 class="oswald mt-5">Cinesa</h2>
-                        <p class="montserrat">Un proyecto que replica la pagina web de cinesa a la perfeccion con todos los detalles</p>
+                        <p class="montserrat">Replica detallada de la página web de Cinesa, ofreciendo una experiencia visual y funcional idéntica a la original. Desde la navegación hasta las reservas, todo está diseñado para que te sientas como si estuvieras en el sitio real.</p>
                     </div>
                     <div class="col-6">
-                        <img style="height: 200px;" data-toggle="modal" data-target="#projectModal" data-title="Cinesa" data-technologies="HTML y CSS" data-github="https://github.com/OscarMontilla/cinesa" class="imagen project-img" src="images/cinesa.png" alt="">
+                        <img data-toggle="modal" data-target="#projectModal" data-title="Cinesa" data-technologies="HTML y CSS" data-github="https://github.com/OscarMontilla/cinesa" class="imagen project-img w-75" src="images/cinesa.png" alt="">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="mt-5 contact text-center text-white">
-            <div id="contacto" class="container">
+        <section id="contacto" class="mt-5 contact text-center text-white">
+            <div class="container">
                 <h2 class="poetsen mb-5">Contacto</h2>
                 <div class="row justify-content-center">
                     <div class="col-md-4 mb-3">
@@ -373,6 +375,28 @@
             image.addEventListener('mouseenter', addZoomEffect);
             image.addEventListener('mouseleave', removeZoomEffect);
         });
+
+        document.addEventListener('DOMContentLoaded', function () {
+    const headerHeight = document.querySelector('header').offsetHeight;
+    const links = document.querySelectorAll('header .nav-link');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+
     </script>
 </body>
 </html>
